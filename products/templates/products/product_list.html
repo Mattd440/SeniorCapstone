@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1> Product List</h1>
-<h3>{{type}}</h3>
-</body>
-</html>
+{% extends 'base_layout.html' %}
+
+{% block title %}PL {% endblock %}
+
+{% block content %}
+    <h1> ProductList  Page</h1>
+    <h3> Product Type: {{ type }}</h3>
+{%  endblock %}

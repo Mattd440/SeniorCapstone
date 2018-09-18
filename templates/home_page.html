@@ -1,12 +1,8 @@
-{% load static from staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="{%  static 'base_layout_styles.css' %}"
-</head>
-<body>
-<h1>HOMEPAGE</h1>
-</body>
-</html>
+{% extends 'base_layout.html' %}
+
+{% block title %}Home {% endblock %}
+
+{% block content %}
+    <h1> Home Page</h1>
+
+{%  endblock %}

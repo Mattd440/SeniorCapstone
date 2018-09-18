@@ -1,0 +1,28 @@
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'base_layout_styles.css' %}">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="wrapper" >
+<div class="header">
+    <nav> <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Star </nav>
+    <button class="btn btn-primary">GOOO</button>
+</div>
+{% block content %}
+
+{% endblock %}
+
+
+</div>
+</body>
+
+</html>

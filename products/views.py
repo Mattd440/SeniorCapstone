@@ -3,7 +3,8 @@ from django.shortcuts import render
 # Create your views here.
 
 def ProductTypes(request):
-    return render(request, 'products/product_type.html')
+    prodTypes = ['laptops', 'tablets', 'printers', 'accessories']
+    return render(request, 'products/product_type.html', {'productTypes': prodTypes})
 
 def ProductList(request, product_type):
     return render(request, 'products/product_list.html', {'type': product_type})
