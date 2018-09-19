@@ -4,7 +4,7 @@
 
 {% block content %}
     <h1> Product Type Page</h1>
-    {% for type in prodTypes %}
-        <h3> type </h3>
+    {% for type in productTypes %}
+        <h3> <a href="{% url 'products:productsList' product_type=type.name %}">{{ type.name  }}</a> </h3>
     {% endfor %}
 {%  endblock %}

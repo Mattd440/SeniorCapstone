@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -37,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'products'
+    'products',
+    'storages'
 ]
 
 MIDDLEWARE = [
@@ -117,8 +119,24 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
+#
+# STATIC_URL = '/static/'
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, 'assets'),
 
-STATIC_URL = '/static/'
+AWS_ACCESS_KEY_ID = 'AKIAWNUDI4OY4CWM7MYQ'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'rocket-technology'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_QUERYSTRING_AUTH = False
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+AWS_LOCATION = 'static'
+
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'assets' )
+    os.path.join(BASE_DIR, 'assets'),
 ]
+STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+

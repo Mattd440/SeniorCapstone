@@ -3,6 +3,14 @@
 {% block title %}PL {% endblock %}
 
 {% block content %}
-    <h1> ProductList  Page</h1>
-    <h3> Product Type: {{ type }}</h3>
+    <h1> {{ type }} List  Page</h1>
+    {%  for product in products %}
+        <h1><a href="{% url 'products:productDetail' type=product.type product_id=product.id %}">{{ product.name }}</a></h1>
+        <h3>{{ product.type }}</h3>
+        <h3>${{ product.price }}</h3>
+        <p>
+            {{ product.description }}
+        </p>
+    {% endfor %}
+
 {%  endblock %}

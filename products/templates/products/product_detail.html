@@ -5,4 +5,8 @@
 {% block content %}
     <h1> Prod Detail  Page</h1>
     <h3> Product Id : {{ id }}</h3>
+
+    <form action="{% url  %}" method="post">
+        <input type="submit" class="btn btn-primary" value="Add to Cart"/ >
+    </form>
 {%  endblock %}

@@ -4,5 +4,7 @@
 
 {% block content %}
     <h1> ABout Page</h1>
-
+    {% for item in items %}
+        {{ item }}
+    {% endfor %}
 {%  endblock %}

@@ -4,8 +4,9 @@ from . import views
 app_name = 'products'
 
 urlpatterns = [
-    re_path(r'^$', views.ProductTypes),
-re_path(r'[\D]+/(?P<product_id>[\d]+)/$', views.ProductDetail),
-    re_path(r'(?P<product_type>[\D]+)/$', views.ProductList),
+    re_path(r'^$', views.ProductTypes, name='products'),
+    re_path(r'(?P<product_type>[\D]+)/$', views.ProductList, name='productsList'),
+    re_path(r'(?P<type>[\D]+)/(?P<product_id>[\d]+)/$', views.ProductDetail, name='productDetail'),
+
 
 ]
