@@ -16,11 +16,12 @@ class ProductType(models.Model):
 
 
 class Product(models.Model):
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=50, db_index=True)
     type = models.ForeignKey(ProductType, on_delete=models.CASCADE)
-    price = models.FloatField(max_length=10)
-    inventory = models.IntegerField()
+    price = models.DecimalField(max_digits=8, decimal_places=2)
+    inventory = models.PositiveIntegerField()
     description = models.TextField(max_length=200)
+    available = models.BooleanField(default=True)
     imageURL = models.CharField(max_length=50)
 
     def __str__(self):
