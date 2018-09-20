@@ -1,8 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.http import Http404
-from .models import ProductType , Product
 # Create your views here.
-from SeniorCapstone.ShoppingCart import *
+from cart.ShoppingCart import *
+from cart.forms import CartAddProductForm
 
 def ProductTypes(request):
     #prodTypes = ['laptops', 'tablets', 'printers', 'accessories']
@@ -26,19 +26,24 @@ def ProductList(request, product_type):
 def ProductDetail(request, type, product_id):
     try:
         product = Product.objects.get(id=product_id)
+        cartForm = CartAddProductForm()
     except:
         raise Http404("Unable To Find Product ")
 
-    return render(request, 'products/product_detail.html', {'product':product, 'type':type})
+    return render(request, 'products/product_detail.html', {
+        'product':product, 'type':type, "cartForm": cartForm})
 
-def AddToCart(request):
-    product_Id = request.POST.get('productId','')
-    product = Product.objects.get(id=product_Id)
-    #
-    # ShoppingCart.addProduct(product)
-    #
-    # cart = request.session['cart']
-    # cart.addProduct(product)
-    # products = cart.getProducts()
-    return render(request, 'products/cart.html', {'product': product})
-    #return redirect('products:products')
+
+
+#
+# def AddToCart(request):
+#     product_Id = request.POST.get('productId','')
+#     product = Product.objects.get(id=product_Id)
+#     #
+#     # ShoppingCart.addProduct(product)
+#     #
+#     # cart = request.session['cart']
+#     # cart.addProduct(product)
+#     # products = cart.getProducts()
+#     return render(request, 'products/cart.html', {'product': product})
+#     #return redirect('products:products')

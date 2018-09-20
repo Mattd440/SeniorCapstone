@@ -7,9 +7,13 @@
     <h3> Product Id : {{ product.id }}</h3>
     <h3> Product Name: {{ product.name }}</h3>
 
-    <form action="{% url 'products:addToCart'  %}" method="post">
+    <form action="{% url 'cart:cart_add' product_id=product.id%}" method="post">
         {% csrf_token %}
-        <input type="hidden" name="productId" value="{{ product.id }}">
-        <input type="submit" class="btn btn-primary" value="Add to Cart" >
+        {{ cartForm }}
+        <input type="submit" value="Add to Cart">
     </form>
+
+    <p>
+    {{ product.description }}
+    </p>
 {%  endblock %}

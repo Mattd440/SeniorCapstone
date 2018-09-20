@@ -1,0 +1,57 @@
+{% extends  'base_layout.html'%}
+
+{% block content %}
+<h1> Shopping Cart</h1>
+{#<table class="cart">#}
+{#    <thead>#}
+{#        <tr> Image </tr>#}
+{#        <tr>Product</tr>#}
+{#        <tr>Quantity </tr>#}
+{#        <tr>Remove</tr>#}
+{#        <tr> Unit Price </tr>#}
+{#        <tr>Price</tr>#}
+{#    </thead>#}
+{##}
+{#    {% for item in cart %}#}
+{#        {% with product=item.product %}#}
+{#            <tr>#}
+{#            <td>#}
+{#                <a href="#">#}
+{#                <img src="{% if product.image %}#}
+{#                                {{  product.imageURL}}#}
+{#                            {% else %}#}
+{#                                {{ product.name }}#}
+{#                            {% endif %}#}
+{##}
+{#                " >#}
+{#                </a>#}
+{#            </td>#}
+{#            <td>#}
+{#                {{ product.name }}#}
+{#            </td>#}
+{#            <td>#}
+{#                <form action="{% url 'cart:cart_add' product_id=product.id %}" method="post">#}
+{#                    {{ item.update_quantity_form.quantity }}#}
+{#                    {{ item.update_quantity_form.update}}#}
+{##}
+{#                    <input type="submit" value="Update">#}
+{#                    {% csrf_token %}#}
+{#                </form>#}
+{#            </td>#}
+{#            <td>#}
+{#                <a href="{%  url 'cart:cart_remove' product_id=product.id %}"> Remove</a>#}
+{#            </td>#}
+{#            <td>#}
+{#                < href="{% url 'cart:cart_remove' product_id=product.id%}">Remove</a>#}
+{#            </td>#}
+{#            <td class="num">#}
+{#                ${{ item.price }}#}
+{#            </td>#}
+{#            </tr>#}
+{##}
+{##}
+{#        {% endwith %}#}
+{#    {% endfor %}#}
+{##}
+{#</table>#}
+{% endblock %}#}

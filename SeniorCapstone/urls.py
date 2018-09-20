@@ -23,7 +23,8 @@ urlpatterns = [
     re_path(r'^$', views.HomePage),
     re_path(r'^about/$', views.AboutPage),
     re_path(r'^contact/$', views.ContactPage),
-    re_path(r'^products/', include('products.urls'))
+    re_path(r'^products/', include('products.urls')),
+    re_path(r'^cart/', include('cart.urls'))
 ]
 
 urlpatterns += staticfiles_urlpatterns()
